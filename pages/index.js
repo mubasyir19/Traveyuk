@@ -1,17 +1,18 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Nunito, Poppins } from "@next/font/google";
-// import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import Image from 'next/image';
+import { Nunito, Poppins } from '@next/font/google';
+import * as Tabs from '@radix-ui/react-tabs';
+import styles from '../styles/Home.module.css';
 
 const nunito = Nunito({
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
 });
 const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
 });
 
 export default function Home() {
@@ -29,30 +30,30 @@ export default function Home() {
               </p>
             </div>
             <div className='my-auto'>
-              <ul className='flex gap-x-7 text-white text-base text-center'>
-                <li>
+              <ul className='lg:flex md:gap-x-7 text-white text-base text-center'>
+                <li className=''>
                   <a href='#' className='border-b-2 border-white'>
                     Home
                   </a>
                 </li>
-                <li>
+                <li className=''>
                   <a href='#' className=''>
                     Featured
                   </a>
                 </li>
-                <li>
+                <li className=''>
                   <a href='#' className=''>
                     Service
                   </a>
                 </li>
-                <li>
+                <li className=''>
                   <a href='#' className=''>
                     Contact Us
                   </a>
                 </li>
               </ul>
             </div>
-            <div className='my-auto'>
+            <div className='lg:my-auto'>
               <a href='#' className='button px-8 py-3 text-base text-white font-semibold'>
                 Sign In
               </a>
@@ -69,9 +70,13 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className='choose-tab mx-auto w-fit -mt-32'>
-          <div className='flex text-white'>
-            <button className='flex gap-2.5 py-4 px-6 rounded-tl-lg font-medium bg-blue-700' data-tab='tab1'>
+        <Tabs.Root className='choose-tab mx-auto w-fit -mt-32' defaultValue='tab1'>
+          <Tabs.List className='flex text-white'>
+            <Tabs.Trigger
+              data-state='active'
+              className='flex gap-2.5 py-4 px-6 rounded-tl-lg font-medium bg-blue-700'
+              value='tab1'
+            >
               <svg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
                   d='M20 14.5V12.5L11.5 7.5V2C11.5 1.17 10.83 0.5 10 0.5C9.17 0.5 8.5 1.17 8.5 2V7.5L0 12.5V14.5L8.5 12V17.5L6 19V20.5L10 19.5L14 20.5V19L11.5 17.5V12L20 14.5Z'
@@ -79,8 +84,11 @@ export default function Home() {
                 />
               </svg>
               Flight
-            </button>
-            <button className='flex gap-2.5 py-4 px-6 rounded-tr-lg text-black font-medium bg-slate-50' data-tab='tab2'>
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              className='flex gap-2.5 py-4 px-6 rounded-tr-lg text-black font-medium bg-slate-50'
+              value='tab2'
+            >
               <svg
                 className='my-auto'
                 width='22'
@@ -95,10 +103,13 @@ export default function Home() {
                 />
               </svg>
               <span className='my-auto'>Hotel</span>
-            </button>
-          </div>
-          <div className='tab-content w-fit bg-white rounded-b-2xl rounded-tr-2xl '>
-            <div className='flex p-6 gap-6 rounded-b-2xl rounded-tr-2xl' id='tab1'>
+            </Tabs.Trigger>
+          </Tabs.List>
+          <div className='tab-content w-fit bg-white rounded-b-2xl rounded-tr-2xl'>
+            <Tabs.Content
+              className='lg:flex lg:flex-grow-1 p-6 grid gap-y-4 lg:gap-6 rounded-b-2xl rounded-tr-2xl'
+              value='tab1'
+            >
               <div className='flex justify-between p-6 border-2 gap-x-14 rounded-lg border-stone-300'>
                 <div className='take-off flex gap-3'>
                   <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
@@ -120,7 +131,7 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <div className=''>
+                  <div className='my-auto'>
                     <p className='text-base'>Take Off</p>
                     <p className='text-base font-semibold'>Jakarta</p>
                   </div>
@@ -157,7 +168,7 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  <div className=''>
+                  <div className='my-auto'>
                     <p className='text-base'>Landing</p>
                     <p className='text-base font-semibold'>New York</p>
                   </div>
@@ -186,7 +197,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className='p-6 border-2 rounded-lg border-stone-300'>
+              <div className=' p-6 border-2 rounded-lg border-stone-300'>
                 <div className='type flex gap-3'>
                   <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
                     <svg width='22' height='23' viewBox='0 0 22 23' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -204,14 +215,16 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className='search p-8 flex justify-center items-center text-center rounded-xl bg-blue-700'>
+              <div className='search p-4 lg:p-8 flex justify-center items-center text-center rounded-xl bg-blue-700'>
                 <svg width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle cx='13' cy='13.2084' r='11.4792' stroke='white' strokeWidth='2.375' />
                   <path d='M20.9165 21.9167L26.4582 27.4584' stroke='white' strokeWidth='2.375' strokeLinecap='round' />
                 </svg>
               </div>
-            </div>
-            <div className='hidden p-6 gap-6 rounded-b-2xl rounded-tr-2xl' id='tab2'>
+            </Tabs.Content>
+          </div>
+          <div className='tab-content w-fit bg-white rounded-b-2xl rounded-tr-2xl'>
+            <Tabs.Content className='lg:flex p-6 grid gap-y-4 lg:gap-6 rounded-b-2xl rounded-tr-2xl' value='tab2'>
               <div className='flex justify-between p-6 border-2 gap-x-14 rounded-lg border-stone-300'>
                 <div className='take-off flex gap-3'>
                   <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
@@ -233,7 +246,7 @@ export default function Home() {
                       />
                     </svg>
                   </div>
-                  <div className=''>
+                  <div className='my-auto'>
                     <p className='text-base'>Take Off</p>
                     <p className='text-base font-semibold'>Jakarta</p>
                   </div>
@@ -270,7 +283,7 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  <div className=''>
+                  <div className='my-auto'>
                     <p className='text-base'>Landing</p>
                     <p className='text-base font-semibold'>New York</p>
                   </div>
@@ -299,7 +312,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className='p-6 border-2 rounded-lg border-stone-300'>
+              <div className=' p-6 border-2 rounded-lg border-stone-300'>
                 <div className='type flex gap-3'>
                   <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
                     <svg width='22' height='23' viewBox='0 0 22 23' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -317,15 +330,15 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className='search p-8 flex justify-center items-center text-center rounded-xl bg-blue-700'>
+              <div className='search p-4 lg:p-8 flex justify-center items-center text-center rounded-xl bg-blue-700'>
                 <svg width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <circle cx='13' cy='13.2084' r='11.4792' stroke='white' strokeWidth='2.375' />
                   <path d='M20.9165 21.9167L26.4582 27.4584' stroke='white' strokeWidth='2.375' strokeLinecap='round' />
                 </svg>
               </div>
-            </div>
+            </Tabs.Content>
           </div>
-        </div>
+        </Tabs.Root>
         <section id='New' className='mt-32 mx-auto w-fit bg-slate-100'>
           <div className='flex gap-x-14'>
             <div className='picture flex gap-x-7'>
@@ -375,7 +388,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id='Best-Offer' className='mt-32 bg-slate-100'>
+        <section id='Best-Offer' className='hidden mt-32 bg-slate-100'>
           <div className='head text-center'>
             <p className='text-lg text-blue-500 font-semibold'>Best Offer From Us</p>
             <h1 className='mt-1.5 text-4xl font-bold'>Special Trip Packages</h1>
@@ -394,7 +407,7 @@ export default function Home() {
           <div className='list-destination w-fit mt-14 mx-auto flex gap-x-9'>
             <div className='card p-6 w-fit rounded-3xl bg-white'>
               <Image
-                src={"/assets/images/dest1.png"}
+                src={'/assets/images/dest1.png'}
                 className='rounded-3xl'
                 width={336}
                 height={280}
@@ -465,7 +478,7 @@ export default function Home() {
             </div>
             <div className='card p-6 w-fit rounded-3xl bg-white'>
               <Image
-                src={"/assets/images/dest2.png"}
+                src={'/assets/images/dest2.png'}
                 className='rounded-3xl'
                 width={336}
                 height={280}
@@ -536,7 +549,7 @@ export default function Home() {
             </div>
             <div className='card p-6 w-fit rounded-3xl bg-white'>
               <Image
-                src={"/assets/images/dest3.png"}
+                src={'/assets/images/dest3.png'}
                 className='rounded-3xl'
                 width={336}
                 height={280}
@@ -609,7 +622,7 @@ export default function Home() {
           <div className='list-destination w-fit mt-9 mx-auto flex gap-x-9'>
             <div className='card p-6 w-fit rounded-3xl bg-white'>
               <Image
-                src={"/assets/images/dest4.png"}
+                src={'/assets/images/dest4.png'}
                 className='rounded-3xl'
                 width={336}
                 height={280}
@@ -680,7 +693,7 @@ export default function Home() {
             </div>
             <div className='card p-6 w-fit rounded-3xl bg-white'>
               <Image
-                src={"/assets/images/dest5.png"}
+                src={'/assets/images/dest5.png'}
                 className='rounded-3xl'
                 width={336}
                 height={280}
@@ -751,7 +764,7 @@ export default function Home() {
             </div>
             <div className='card p-6 w-fit rounded-3xl bg-white'>
               <Image
-                src={"/assets/images/dest6.png"}
+                src={'/assets/images/dest6.png'}
                 className='rounded-3xl'
                 width={336}
                 height={280}
@@ -825,15 +838,15 @@ export default function Home() {
         <section id='Review' className='mt-32 pb-32 mx-auto w-fit bg-slate-100'>
           <div className='flex gap-x-16'>
             <div className='ilustration relative'>
-              <Image src={"/assets/images/review.png"} width={522} height={604} alt='review' />
+              <Image src={'/assets/images/review.png'} width={522} height={604} alt='review' />
               <div className='emoji absolute bottom-24 -left-8 w-fit p-6 rounded-3xl bg-white'>
                 <p className='text-2xl font-semibold'>How your experience?</p>
                 <div className='flex mt-3 gap-x-3'>
-                  <Image src={"/assets/images/angry.png"} width={46} height={46} alt='angry' />
-                  <Image src={"/assets/images/sad.png"} width={46} height={46} alt='sad' />
-                  <Image src={"/assets/images/flat.png"} width={46} height={46} alt='flat' />
-                  <Image src={"/assets/images/happy.png"} width={46} height={46} alt='happy' />
-                  <Image src={"/assets/images/love.png"} width={46} height={46} alt='love' />
+                  <Image src={'/assets/images/angry.png'} width={46} height={46} alt='angry' />
+                  <Image src={'/assets/images/sad.png'} width={46} height={46} alt='sad' />
+                  <Image src={'/assets/images/flat.png'} width={46} height={46} alt='flat' />
+                  <Image src={'/assets/images/happy.png'} width={46} height={46} alt='happy' />
+                  <Image src={'/assets/images/love.png'} width={46} height={46} alt='love' />
                 </div>
               </div>
             </div>
@@ -852,7 +865,7 @@ export default function Home() {
               <div className='reviewer mt-5 flex gap-x-3'>
                 <div className='left'>
                   <Image
-                    src={"/assets/images/reviewer.png"}
+                    src={'/assets/images/reviewer.png'}
                     className='rounded-full'
                     width={64}
                     height={64}
