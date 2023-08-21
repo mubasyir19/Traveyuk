@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Nunito, Poppins } from '@next/font/google';
 import * as Tabs from '@radix-ui/react-tabs';
 import styles from '../styles/Home.module.css';
+import Navbar from '../components/Navbar';
 
 const nunito = Nunito({
   weight: ['300', '400', '500', '600', '700'],
@@ -23,45 +24,7 @@ export default function Home() {
       </Head>
       <main className='bg-slate-100' style={poppins.style}>
         <div className="h-screen bg-cover bg-[url('/assets/images/background.png')]">
-          <div className='navbar flex justify-between px-16 pt-9'>
-            <div className='title'>
-              <p className='title text-4xl font-bold text-white my-auto' style={nunito.style}>
-                Traveyuk
-              </p>
-            </div>
-            <div className='my-auto'>
-              <ul className='lg:flex md:gap-x-7 text-white text-base text-center'>
-                <li className=''>
-                  <a href='#' className='border-b-2 border-white'>
-                    Home
-                  </a>
-                </li>
-                <li className=''>
-                  <a href='#' className=''>
-                    Featured
-                  </a>
-                </li>
-                <li className=''>
-                  <a href='#' className=''>
-                    Service
-                  </a>
-                </li>
-                <li className=''>
-                  <a href='#' className=''>
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className='lg:my-auto'>
-              <a href='#' className='button px-8 py-3 text-base text-white font-semibold'>
-                Sign In
-              </a>
-              <a href='#' className='button px-8 py-3 text-baset text-white font-semibold rounded-lg bg-blue-500'>
-                Sign Up
-              </a>
-            </div>
-          </div>
+          <Navbar />
           {/* <div className='Jumbotron text-center pt-32'> */}
           <div className='Jumbotron h-fit my-auto text-center pt-40'>
             <p className='text-xl text-stone-300 font-semibold'>Life Is Too short For A Wide And Beautiful World</p>
