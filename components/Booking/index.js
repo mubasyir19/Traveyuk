@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
 
 export default function Booking() {
+  const [flightDate, setFlightDate] = useState('');
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState('');
+
   const [activeTab, setActiveTab] = useState(1);
 
   const switchTab = (tabNumber) => {
@@ -53,14 +57,10 @@ export default function Booking() {
       <div className='tab-content w-fit bg-white rounded-b-2xl rounded-tr-2xl'>
         {activeTab === 1 && (
           <div className='lg:flex lg:flex-grow-1 p-6 grid gap-y-4 lg:gap-6 rounded-b-2xl rounded-tr-2xl' value='tab1'>
-            {/* <Tabs.Content
-          className='lg:flex lg:flex-grow-1 p-6 grid gap-y-4 lg:gap-6 rounded-b-2xl rounded-tr-2xl'
-          value='tab1'
-        > */}
             {/* Destination Flight */}
-            <div className='flex justify-between p-6 border-2 gap-x-10 rounded-lg border-stone-300'>
+            <div className=' block md:flex justify-between p-6 border-2 gap-x-10 rounded-lg border-stone-300'>
               <div className='take-off flex gap-3'>
-                <div className='logo hidden md:flex my-auto h-12 w-12 p-1.5 justify-center items-center text-center rounded-xl bg-blue-200'>
+                <div className='logo flex my-auto h-12 w-12 p-1.5 justify-center items-center text-center rounded-xl bg-blue-200'>
                   <svg
                     className=''
                     width='27'
@@ -79,12 +79,20 @@ export default function Booking() {
                     />
                   </svg>
                 </div>
-                <div className='my-auto'>
+                <div className='my-auto '>
                   <p className='text-sm md:text-base'>Take Off</p>
-                  <p className='text-base font-semibold'>Jakarta</p>
+                  <select className='text-base font-semibold' defaultValue='Jakarta'>
+                    <option value='Jakarta'>Jakarta</option>
+                    <option value='Bandung'>Bandung</option>
+                    <option value='Semarang'>Semarang</option>
+                    <option value='Yogyakarta'>Yogyakarta</option>
+                    <option value='Surabaya'>Surabaya</option>
+                    <option value='Malang'>Malang</option>
+                  </select>
+                  {/* <p className='text-base font-semibold'>Jakarta</p> */}
                 </div>
               </div>
-              <div className='arrow my-auto'>
+              <div className='arrow flex justify-center my-6 md:my-auto'>
                 <svg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
                     d='M1.5 18L9.5 10L1.5 2'
@@ -96,7 +104,7 @@ export default function Booking() {
                 </svg>
               </div>
               <div className='landing flex gap-3'>
-                <div className='logo hidden md:flex my-auto h-12 w-12 p-1.5 justify-center items-center text-center rounded-xl bg-blue-200'>
+                <div className='logo flex my-auto h-12 w-12 p-1.5 justify-center items-center text-center rounded-xl bg-blue-200'>
                   <svg
                     className='my-auto'
                     width='29'
@@ -118,7 +126,14 @@ export default function Booking() {
 
                 <div className='my-auto'>
                   <p className='text-sm md:text-base'>Landing</p>
-                  <p className='text-base font-semibold'>New York</p>
+                  <select className='text-base font-semibold' defaultValue='Jakarta'>
+                    <option value='Jakarta'>Jakarta</option>
+                    <option value='Bandung'>Bandung</option>
+                    <option value='Semarang'>Semarang</option>
+                    <option value='Yogyakarta'>Yogyakarta</option>
+                    <option value='Surabaya'>Surabaya</option>
+                    <option value='Malang'>Malang</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -142,7 +157,8 @@ export default function Booking() {
                 </div>
                 <div className=''>
                   <p className='text-base'>Choose Flight Date</p>
-                  <p className='text-base font-semibold'>25 July 2025</p>
+                  <input type='date' value={flightDate} onChange={(event) => setFlightDate(event.target.value)} />
+                  {/* <p className='text-base font-semibold'>25 July 2025</p> */}
                 </div>
               </div>
             </div>
@@ -161,7 +177,12 @@ export default function Booking() {
                 </div>
                 <div className=''>
                   <p className='text-base'>Choose Flight Type</p>
-                  <p className='text-base font-semibold'>Bussine Class</p>
+                  <select className='text-base font-semibold' defaultValue='Bussines Class'>
+                    <option value='VIP Class'>VIP Class</option>
+                    <option value='Bussines Class'>Bussines Class</option>
+                    <option value='Executive Class'>Executive Class</option>
+                  </select>
+                  {/* <p className='text-base font-semibold'>Bussine Class</p> */}
                 </div>
               </div>
             </div>
@@ -171,16 +192,16 @@ export default function Booking() {
                 <path d='M20.9165 21.9167L26.4582 27.4584' stroke='white' strokeWidth='2.375' strokeLinecap='round' />
               </svg>
             </div>
-            {/* </Tabs.Content> */}
           </div>
         )}
       </div>
       <div className='tab-content w-fit bg-white rounded-b-2xl rounded-tr-2xl'>
         {activeTab === 2 && (
-          <div className='lg:flex lg:flex-grow-1 p-6 grid gap-y-4 lg:gap-6 rounded-b-2xl rounded-tr-2xl' value='tab1'>
-            <div className='p-6 border-2 rounded-lg border-stone-300'>
-              <div className='date flex gap-3'>
-                <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
+          <div className='lg:flex lg:flex-grow-1 p-6 grid gap-y-4 lg:gap-6 rounded-b-2xl rounded-tr-2xl' value='tab2'>
+            {/* Date Stay */}
+            <div className=' block md:flex justify-between p-6 border-2 gap-x-10 rounded-lg border-stone-300'>
+              <div className='checkin flex gap-3'>
+                <div className='logo flex my-auto h-12 w-12 p-1.5 justify-center items-center text-center rounded-xl bg-blue-200'>
                   <svg
                     className='m-auto'
                     width='22'
@@ -195,9 +216,71 @@ export default function Booking() {
                     />
                   </svg>
                 </div>
+                <div className='my-auto '>
+                  <p className='text-sm md:text-base'>Check In</p>
+                  <input type='date' value={checkInDate} onChange={(event) => setCheckInDate(event.target.value)} />
+                </div>
+              </div>
+              <div className='arrow flex justify-center my-6 md:my-auto'>
+                <svg width='11' height='20' viewBox='0 0 11 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    d='M1.5 18L9.5 10L1.5 2'
+                    stroke='#232631'
+                    strokeWidth='3'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+              </div>
+              <div className='checkout flex gap-3'>
+                <div className='logo flex my-auto h-12 w-12 p-1.5 justify-center items-center text-center rounded-xl bg-blue-200'>
+                  <svg
+                    className='m-auto'
+                    width='22'
+                    height='25'
+                    viewBox='0 0 22 25'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      d='M7.33333 11.2777H4.88889V13.7222H7.33333V11.2777ZM12.2222 11.2777H9.77778V13.7222H12.2222V11.2777ZM17.1111 11.2777H14.6667V13.7222H17.1111V11.2777ZM19.5556 2.72215H18.3333V0.27771H15.8889V2.72215H6.11111V0.27771H3.66667V2.72215H2.44444C1.08778 2.72215 0.0122222 3.82215 0.0122222 5.1666L0 22.2777C0 23.6222 1.08778 24.7222 2.44444 24.7222H19.5556C20.9 24.7222 22 23.6222 22 22.2777V5.1666C22 3.82215 20.9 2.72215 19.5556 2.72215ZM19.5556 22.2777H2.44444V8.83327H19.5556V22.2777Z'
+                      fill='#3258E8'
+                    />
+                  </svg>
+                </div>
+
+                <div className='my-auto'>
+                  <p className='text-sm md:text-base'>Check Out</p>
+                  <input type='date' value={checkOutDate} onChange={(event) => setCheckOutDate(event.target.value)} />
+                </div>
+              </div>
+            </div>
+            {/* Date Flight */}
+            <div className='p-6 border-2 rounded-lg border-stone-300'>
+              <div className='date flex gap-3'>
+                <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
+                  <svg
+                    className='my-auto'
+                    width='22'
+                    height='16'
+                    viewBox='0 0 22 16'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path
+                      d='M6 8.5C7.66 8.5 9 7.16 9 5.5C9 3.84 7.66 2.5 6 2.5C4.34 2.5 3 3.84 3 5.5C3 7.16 4.34 8.5 6 8.5ZM18 2.5H10V9.5H2V0.5H0V15.5H2V12.5H20V15.5H22V6.5C22 4.29 20.21 2.5 18 2.5Z'
+                      fill='#3258E8'
+                    />
+                  </svg>
+                </div>
                 <div className=''>
-                  <p className='text-base'>Choose Flight Date</p>
-                  <p className='text-base font-semibold'>25 July 2025</p>
+                  <p className='text-base'>Room Type</p>
+                  <select className='text-base font-semibold' defaultValue='Superior Room'>
+                    <option value='Superior Room'>Superior Room</option>
+                    <option value='Deluxe Room'>Deluxe Room</option>
+                    <option value='Suite Room'>Suite Room</option>
+                    <option value='Standard Room'>Standard Room</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -205,18 +288,30 @@ export default function Booking() {
             <div className=' p-6 border-2 rounded-lg border-stone-300'>
               <div className='type flex gap-3'>
                 <div className='logo my-auto h-12 w-12 p-1.5 flex justify-center items-center text-center rounded-xl bg-blue-200'>
-                  <svg width='22' height='23' viewBox='0 0 22 23' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <svg
+                    className='my-auto'
+                    width='22'
+                    height='16'
+                    viewBox='0 0 22 16'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
                     <path
-                      d='M0 13.8874V2.80631C0 1.53257 1.03257 0.5 2.30631 0.5H2.50062C3.49296 0.5 4.37405 1.13477 4.68826 2.07606L7.20363 9.61145C7.51784 10.5527 8.39893 11.1875 9.39127 11.1875H18.3438C20.363 11.1875 22 12.8245 22 14.8438C22 16.863 20.363 18.5 18.3438 18.5H4.61261C2.06514 18.5 0 16.4349 0 13.8874Z'
+                      d='M6 8.5C7.66 8.5 9 7.16 9 5.5C9 3.84 7.66 2.5 6 2.5C4.34 2.5 3 3.84 3 5.5C3 7.16 4.34 8.5 6 8.5ZM18 2.5H10V9.5H2V0.5H0V15.5H2V12.5H20V15.5H22V6.5C22 4.29 20.21 2.5 18 2.5Z'
                       fill='#3258E8'
                     />
-                    <path d='M11 7.5H18' stroke='#3258E8' strokeWidth='2.5' strokeLinecap='round' />
-                    <path d='M4 21.5H16' stroke='#3258E8' strokeWidth='2.5' strokeLinecap='round' />
                   </svg>
                 </div>
                 <div className=''>
-                  <p className='text-base'>Choose Flight Type</p>
-                  <p className='text-base font-semibold'>Bussine Class</p>
+                  <p className='text-base'>Guests</p>
+                  <select className='text-base font-semibold' defaultValue='2 Persons'>
+                    <option value='1'>1 Persons</option>
+                    <option value='2'>2 Persons</option>
+                    <option value='3'>3 Persons</option>
+                    <option value='4'>4 Persons</option>
+                    <option value='5'>5 Persons</option>
+                  </select>
+                  {/* <p className='text-base font-semibold'>Bussine Class</p> */}
                 </div>
               </div>
             </div>
