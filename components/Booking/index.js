@@ -305,7 +305,7 @@ export default function Booking() {
                 <div className=''>
                   <p className='text-base'>Guests</p>
                   <select className='text-base font-semibold' defaultValue='2 Persons'>
-                    <option value='1'>1 Persons</option>
+                    <option value='1'>1 Person</option>
                     <option value='2'>2 Persons</option>
                     <option value='3'>3 Persons</option>
                     <option value='4'>4 Persons</option>
