@@ -35,16 +35,16 @@ export default function Navbar() {
           Travyuk
         </Link>
         <div className='hidden md:flex md:my-auto md:space-x-7 text-white'>
-          <Link href='#' className=''>
+          <Link href='#' className='hover:underline hover:underline-offset-4'>
             Home
           </Link>
-          <Link href='#' className=''>
+          <Link href='#' className='hover:underline hover:underline-offset-4'>
             Featured
           </Link>
-          <Link href='#' className=''>
+          <Link href='#' className='hover:underline hover:underline-offset-4'>
             Service
           </Link>
-          <Link href='#' className=''>
+          <Link href='#' className='hover:underline hover:underline-offset-4'>
             Contact Us
           </Link>
         </div>
