@@ -186,12 +186,12 @@ export default function Booking() {
                 </div>
               </div>
             </div>
-            <div className='search p-4 lg:p-8 flex justify-center items-center text-center rounded-xl bg-blue-700'>
+            <button className='search p-4 lg:p-8 flex justify-center items-center text-center rounded-xl bg-blue-700 hover:transition-all hover:bg-blue-600'>
               <svg width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <circle cx='13' cy='13.2084' r='11.4792' stroke='white' strokeWidth='2.375' />
                 <path d='M20.9165 21.9167L26.4582 27.4584' stroke='white' strokeWidth='2.375' strokeLinecap='round' />
               </svg>
-            </div>
+            </button>
           </div>
         )}
       </div>
@@ -315,12 +315,12 @@ export default function Booking() {
                 </div>
               </div>
             </div>
-            <div className='search p-4 lg:p-8 flex justify-center items-center text-center rounded-xl bg-blue-700'>
+            <button className='search p-4 lg:p-8 flex justify-center items-center text-center rounded-xl bg-blue-700 hover:transition-all hover:bg-blue-600'>
               <svg width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <circle cx='13' cy='13.2084' r='11.4792' stroke='white' strokeWidth='2.375' />
                 <path d='M20.9165 21.9167L26.4582 27.4584' stroke='white' strokeWidth='2.375' strokeLinecap='round' />
               </svg>
-            </div>
+            </button>
           </div>
         )}
       </div>
