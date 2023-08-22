@@ -25,7 +25,11 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 ${hasScrolled ? 'bg-black bg-opacity-70' : ''}`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 md:px-16 ${
+        hasScrolled ? 'transition-all bg-black bg-opacity-70' : 'transition-all'
+      }`}
+    >
       <div className='flex justify-between relative p-4'>
         <Link href='/' className='text-4xl text-white'>
           Travyuk
@@ -67,9 +71,9 @@ export default function Navbar() {
                     viewBox='0 0 24 24'
                     fill='none'
                     stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
-                    stroke-linejoin='round'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     className='w-10 h-10 text-white text-right'
                   >
                     <line x1='18' y1='6' x2='6' y2='18'></line>
@@ -88,14 +92,22 @@ export default function Navbar() {
                 <Link href='#' className='block text-lg text-white text-center'>
                   About Us
                 </Link>
-                <div className='flex justify-center gap-x-4'>
+                <div className='flex justify-center text-white'>
+                  <Link href='#' className='py-3 px-6 rounded-lg'>
+                    Sign In
+                  </Link>
+                  <Link href='#' className='py-3 px-6 rounded-lg bg-blue-500'>
+                    Sign Up
+                  </Link>
+                </div>
+                {/* <div className='flex justify-center gap-x-4'>
                   <Link href='#' className='py-2 px-4 text-dark text-lg rounded-md bg-white'>
                     Sign In
                   </Link>
                   <Link href='#' className='py-2 px-4 text-dark text-lg rounded-md bg-white'>
                     Sign Up
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           )}
