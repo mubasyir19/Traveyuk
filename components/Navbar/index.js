@@ -52,7 +52,7 @@ export default function Navbar() {
           <Link href='#' className='py-3 px-6 rounded-lg'>
             Sign In
           </Link>
-          <Link href='#' className='py-3 px-6 rounded-lg bg-blue-500'>
+          <Link href='#' className='py-3 px-6 rounded-lg bg-blue-700 hover:bg-blue-600'>
             Sign Up
           </Link>
         </div>
@@ -96,18 +96,10 @@ export default function Navbar() {
                   <Link href='#' className='py-3 px-6 rounded-lg'>
                     Sign In
                   </Link>
-                  <Link href='#' className='py-3 px-6 rounded-lg bg-blue-500'>
+                  <Link href='#' className='py-3 px-6 rounded-lg bg-blue-700 hover:bg-blue-600'>
                     Sign Up
                   </Link>
                 </div>
-                {/* <div className='flex justify-center gap-x-4'>
-                  <Link href='#' className='py-2 px-4 text-dark text-lg rounded-md bg-white'>
-                    Sign In
-                  </Link>
-                  <Link href='#' className='py-2 px-4 text-dark text-lg rounded-md bg-white'>
-                    Sign Up
-                  </Link>
-                </div> */}
               </div>
             </div>
           )}
